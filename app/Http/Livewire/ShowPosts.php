@@ -32,4 +32,18 @@ class ShowPosts extends Component
 
         $this->content = '';
     }
+
+    public function like($idPost)
+    {
+        $post = Post::find($idPost);
+
+        $post->likes()->create([
+            'user_id' => auth()->user()->id
+        ]);
+    }
+
+    public function unlike(Post $post)
+    {
+        $post->likes()->delete();
+    }
 }

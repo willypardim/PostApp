@@ -16,7 +16,14 @@
     <hr>
 
     @foreach ($posts as $post)
-        {{ $post->user->name }} - {{ $post->content }} <br>
+        {{ $post->user->name }} - {{ $post->content }}
+        @if ($post->likes->count())
+            <a href="#" wire:click.prevent="unlike({{$post->id}})">Unlike</a>
+        @else
+            <a href="#" wire:click.prevent="like({{$post->id}})">Like</a>
+        @endif
+        
+        <br>
     @endforeach
 
     <hr>
