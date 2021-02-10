@@ -15,7 +15,7 @@ class ShowPosts extends Component
 
     public function render()
     {
-        $posts = Post::with('user')->paginate(2);
+        $posts = Post::with('user')->latest()->paginate(10);
 
         return view('livewire.show-posts', [
             'posts' => $posts
@@ -25,9 +25,9 @@ class ShowPosts extends Component
     public function create()
     {
         $this->validate();
-        Post::create([
+        
+        auth()->user()->posts()->create([
             'content' => $this->content,
-            'user_id' => 4
         ]);
 
         $this->content = '';
