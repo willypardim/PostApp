@@ -15,7 +15,7 @@ class ShowPosts extends Component
 
     public function render()
     {
-        $posts = Post::with('user')->get();
+        $posts = Post::with('user')->paginate(2);
 
         return view('livewire.show-posts', [
             'posts' => $posts

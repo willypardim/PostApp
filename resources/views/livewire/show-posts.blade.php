@@ -18,4 +18,10 @@
     @foreach ($posts as $post)
         {{ $post->user->name }} - {{ $post->content }} <br>
     @endforeach
+
+    <hr>
+
+    <div>
+        {{$posts->links()}}
+    </div>
 </div>
