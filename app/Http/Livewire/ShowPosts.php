@@ -7,7 +7,11 @@ use Livewire\Component;
 
 class ShowPosts extends Component
 {
-    public $message = "apenas um teste";
+    public $content = "apenas um teste";
+
+    protected $rules = [
+        'content' => 'required|min:3|max:255'
+    ];
 
     public function render()
     {
@@ -20,11 +24,12 @@ class ShowPosts extends Component
 
     public function create()
     {
+        $this->validate();
         Post::create([
-            'content' => $this->message,
+            'content' => $this->content,
             'user_id' => 4
         ]);
 
-        $this->message = '';
+        $this->content = '';
     }
 }
