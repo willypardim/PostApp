@@ -17,4 +17,14 @@ class ShowPosts extends Component
             'posts' => $posts
         ]);
     }
+
+    public function create()
+    {
+        Post::create([
+            'content' => $this->message,
+            'user_id' => 4
+        ]);
+
+        $this->message = '';
+    }
 }
