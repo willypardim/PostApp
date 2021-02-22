@@ -1,3 +1,7 @@
+
+
+
+
 <div>
     Show posts
 
@@ -25,8 +29,9 @@
             @endif
                 {{ $post->user->name }}
         </div>
+        
         {{ $post->content }}
-        <div class="w-6/8">
+        <div class="w-7/8">
             @if ($post->likes->count())
                 <a href="#" wire:click.prevent="unlike({{$post->id}})">Unlike</a>
             @else
@@ -34,6 +39,7 @@
             @endif
         </div>
     </div>
+        
         
         <br>
     @endforeach
@@ -44,3 +50,21 @@
         {{$posts->links()}}
     </div>
 </div>
+
+<div class="grid.grid-cols-1 lg:grid-cols-2">
+    <div class="bg-blue-600 lg:min-h-screen lg:flex lg:items-center p-8 sm:p-12">
+        <div class="flex-grow">
+            <h1 class="text-white text-center text-2xl sm:text-5xl mb-2">
+                Seja bem vindo
+            </h1>
+            <p class="text-center text-blue-200 sm:text-lg">
+                Faça seu login para começar
+            </p>
+        </div>
+    </div>
+</div>
+
+
+
+
+
